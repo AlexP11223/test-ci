@@ -16,6 +16,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Set version
+      env:
+        PACKAGE_VERSION: ${{ github.event.inputs.packageVersion }}
+      run: 'sed -Ei "s/test.*/test-${PACKAGE_VERSION}/g" README.md.php'
+      if: github.event.inputs.packageVersion
+      
     - name: Upload
       uses: actions/upload-artifact@v3
       with:
