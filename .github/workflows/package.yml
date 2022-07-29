@@ -1,7 +1,6 @@
 name: Build package
 
 on:
-  push:
   workflow_dispatch:
     inputs:
       packageVersion:
@@ -15,9 +14,9 @@ jobs:
 
     name: Build package
     steps:
-    - uses: actions/checkout@v
+    - uses: actions/checkout@v3
 
     - name: Upload
       uses: actions/upload-artifact@v3
       with:
-        path: RADME.md
+        path: README.md
